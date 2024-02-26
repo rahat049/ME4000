@@ -16,11 +16,11 @@ jobs:
     - name: Set up LaTeX
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: graph.tex  # Replace with your LaTeX file name
+        root_file: main.tex  # Replace with your LaTeX file name
 
     - name: Compile LaTeX to PDF
       run: |
-        latexmk -pdf graph.tex  # Replace with your LaTeX file name
+        latexmk -pdf main.tex  # Replace with your LaTeX file name
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v2
