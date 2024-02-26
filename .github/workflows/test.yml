@@ -19,4 +19,4 @@ jobs:
     - name: Compile LaTeX to PDF
       run: |
         pdflatex text.tex
-        mv test.pdf $GITHUB_WORKSPACE/test.pdf
+  
