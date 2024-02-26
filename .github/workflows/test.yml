@@ -19,6 +19,9 @@ jobs:
     - name: Compile LaTeX to PDF
       run: |
         sudo pdflatex text.tex
-        sudo mv text.pdf $GITHUB_WORKSPACE/test.pdf
+        ls
+        find . -name "text.pdf"
+        sudo mv text.pdf $GITHUB_WORKSPACE/roni.pdf
+        head $GITHUB_WORKSPACE/roni.pdf
       shell: bash
   
