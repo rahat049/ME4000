@@ -18,7 +18,8 @@ jobs:
 
     - name: Compile LaTeX to PDF
       run: |
-        sudo pdflatex https://github.com/rahat049/ME4000/blob/main/text.tex
+        sudo pdflatex text.tex
+        pwd
         mv text.pdf $GITHUB_WORKSPACE/text.pdf
         shell: bash
   
