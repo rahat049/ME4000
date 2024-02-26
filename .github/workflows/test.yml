@@ -21,8 +21,6 @@ jobs:
         sudo pdflatex text.tex
         ls
         find . -name "text.pdf"
-        sudo mv text.pdf ./github/workflows
-        pwd
-        find . -name "roni.pdf"
+        mkdir roni
       shell: bash
   
