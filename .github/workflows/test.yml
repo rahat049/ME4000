@@ -22,6 +22,7 @@ jobs:
         ls
         find . -name "text.pdf"
         sudo mv text.pdf $GITHUB_WORKSPACE/roni.pdf
-        head $GITHUB_WORKSPACE/roni.pdf
+        pwd
+        find . -name "roni.pdf"
       shell: bash
   
