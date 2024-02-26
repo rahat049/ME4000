@@ -19,6 +19,4 @@ jobs:
     - name: Compile LaTeX to PDF
       run: |
         sudo pdflatex text.tex
-        pwd
-        shell: bash
   
