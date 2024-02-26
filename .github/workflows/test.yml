@@ -20,5 +20,5 @@ jobs:
       run: |
         pdflatex text.tex
         mv text.pdf $GITHUB_WORKSPACE/test.pdf
-        shell: bash
+        shell: /bin/bash
   
