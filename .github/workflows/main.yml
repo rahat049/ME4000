@@ -1,0 +1,29 @@
+name: Compile LaTeX to PDF
+
+on:
+  push:
+    branches:
+      - main  # Change to your branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up LaTeX
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: graph.tex  # Replace with your LaTeX file name
+
+    - name: Compile LaTeX to PDF
+      run: |
+        latexmk -pdf graph.tex  # Replace with your LaTeX file name
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: output-pdf
+        path: your-latex-document.pdf  # Replace with your PDF file name
