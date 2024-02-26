@@ -1,0 +1,57 @@
+\contentsline {section}{Declaration}{i}{}%
+\contentsline {section}{Approval}{ii}{}%
+\contentsline {section}{BOARD OF EXAMINERS}{ii}{}%
+\contentsline {section}{Acknowledgement}{iii}{}%
+\contentsline {section}{Abstract}{iv}{}%
+\contentsline {section}{List of Tables}{vi}{}%
+\contentsline {section}{List of Figures}{vii}{}%
+\contentsline {section}{List of Illustrations}{viii}{}%
+\contentsline {section}{Nomenclature}{1}{}%
+\contentsline {section}{CHAPTER I}{1}{}%
+\contentsline {subsection}{INTRODUCTION}{1}{}%
+\contentsline {subsubsection}{1.1 Introduction}{1}{}%
+\contentsline {subsubsection}{1.2 Current situation of Renewable energy}{1}{}%
+\contentsline {subsubsection}{1.3 Project motivation}{1}{}%
+\contentsline {subsubsection}{1.4 Objectives}{1}{}%
+\contentsline {subsubsection}{1.5 Problem description}{1}{}%
+\contentsline {section}{CHAPTER II}{2}{}%
+\contentsline {subsection}{LITERATURE REVIEW}{2}{}%
+\contentsline {subsubsection}{2.1 LITERATURE REVIEW}{2}{}%
+\contentsline {section}{CHAPTER III}{3}{}%
+\contentsline {subsection}{METHODOLOGY}{3}{}%
+\contentsline {subsubsection}{3.1 Numerical Modeling}{3}{}%
+\contentsline {subsubsection}{3.2 Governing equation}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.2.1 Continuity equation}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.2.2 Momentum equation (Navier–Stokes equation)}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.2.3 Physics Modeling}{3}{}%
+\contentsline {subsubsection}{3.3 CFD Method}{3}{}%
+\contentsline {subsubsection}{3.4 DNS Method}{3}{}%
+\contentsline {subsubsection}{3.5 Transient structural analysis method}{3}{}%
+\contentsline {subsubsection}{3.6 Boundary condition}{3}{}%
+\contentsline {subsubsection}{3.7 Data and calculation}{3}{}%
+\contentsline {subsubsection}{3.8 Geometrical model}{3}{}%
+\contentsline {subsubsection}{3.9 Meshing for fluid domain}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.9.1 Mesh for Fluent}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.9.2 Mesh quality for Fluent}{3}{}%
+\contentsline {subsubsection}{3.10 Mesh Independency test (For Fluid domain)}{3}{}%
+\contentsline {subsubsection}{3.11 Residual dependency test}{3}{}%
+\contentsline {subsubsection}{3.12 Model validation}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.12.1 Free Decay Test}{3}{}%
+\contentsline {subsubsection}{3.13 Numerical Setup}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.13.1 Fluent setup}{3}{}%
+\contentsline {paragraph}{\fontsize {11}{12}\selectfont 3.13.2 Transient Structural analysis setup}{3}{}%
+\contentsline {section}{CHAPTER IV}{4}{}%
+\contentsline {subsection}{RESULT AND DISCUSSION}{4}{}%
+\contentsline {subsubsection}{4.1 Wave Generation Results}{4}{}%
+\contentsline {paragraph}{\fontsize {10}{12}\selectfont 4.1.1 Static Pressure Due to 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}{4}{}%
+\contentsline {paragraph}{\fontsize {10}{12}\selectfont 4.1.2 Velocity observation for 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}{4}{}%
+\contentsline {paragraph}{\fontsize {10}{12}\selectfont 4.1.3 Phase Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}{4}{}%
+\contentsline {paragraph}{\fontsize {10}{12}\selectfont 4.1.4 Dynamic pressure Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}{4}{}%
+\contentsline {paragraph}{\fontsize {10}{12}\selectfont 4.1.5 Impact of Wave on the sphere}{4}{}%
+\contentsline {subsubsection}{4.2 Structural deformation Results}{4}{}%
+\contentsline {paragraph}{\fontsize {10}{12}\selectfont 4.2.1 Deformation}{4}{}%
+\contentsline {paragraph}{\fontsize {10}{12}\selectfont 4.2.2 Total strain energy gained}{4}{}%
+\contentsline {section}{CHAPTER V}{5}{}%
+\contentsline {subsection}{5.1 Discussion}{5}{}%
+\contentsline {subsection}{5.2 Conclusion}{5}{}%
+\contentsline {section}{References}{6}{}%

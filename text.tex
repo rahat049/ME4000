@@ -1,0 +1,855 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for adding images
+\usepackage[top=30 mm, left= 30 mm, right= 25 mm, bottom= 25 mm]{geometry}
+\usepackage{mathptmx} % Times New Roman
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{ragged2e} % For text justification
+\usepackage{ulem} % for extended underline (\uline)
+\usepackage{array} % for custom column alignment
+\usepackage{titlesec}
+\usepackage{nomencl}
+\usepackage{glossaries}
+
+
+% Font settings
+\renewcommand{\familydefault}{\rmdefault}
+
+% Section heading style
+\renewcommand{\thesection}{\arabic{section}}
+
+% Table of contents formatting
+\renewcommand{\contentsname}{\centering\fontsize{14}{16}\bfseries Table of Contents}
+
+% Custom styles
+\newcommand{\Titlethesis}[1]{\centering\fontsize{14}{16}\bfseries\MakeUppercase{#1}}
+\newcommand{\Stuname}[1]{\centering\fontsize{12}{14}\bfseries #1}
+\newcommand{\Degree}[1]{\centering\fontsize{12}{14}\selectfont #1}
+
+
+
+\begin{document}
+\pagenumbering{roman}
+% Title page
+% Title page
+\begin{titlepage}
+    \centering
+    {\Titlethesis{A Numerical Simulation of a Variable-Shape Buoy Wave Energy
+Conversion using Hyper Elastic Materials} \par}
+    
+    \vspace{3\baselineskip}
+    
+    {\fontsize{14}{16}\Stuname{by} \par}
+    
+    \vspace{3\baselineskip}
+    
+    {\fontsize{14}{16}\Stuname{Md Rahatuzzaman Roni\\ Roll No. 1805049} \par}
+    
+    \vspace{4\baselineskip}
+    
+    {\Degree{A thesis report submitted in partial fulfillment of the requirements for the degree of Bachelor of Science in Mechanical Engineering} \par}
+    
+    \vspace{5\baselineskip}
+    
+    \includegraphics[width=0.3\textwidth]{logo.png} % Include your image file here
+    
+    \vspace{5\baselineskip}
+    
+    {\Degree{Khulna University of Engineering \& Technology \\
+    Khulna 9203, Bangladesh \\
+    March 2024} \par}
+    
+\end{titlepage}
+\clearpage
+% Declaration
+% Declaration
+\section*{\centering\fontsize{14}{16}\selectfont Declaration}
+\addcontentsline{toc}{section}{Declaration}
+\vspace{3\baselineskip}
+\setstretch{1.5}
+\begin{justify}
+{\fontsize{12}{14}\selectfont This is to certify that the thesis work entitled “A Numerical Simulation Of A Variable-Shape Buoy Wave Energy Conversion Using Hyper Elastic Materials” has been carried out by Md Rahatuzzaman Roni, Roll No. 1805049) in the Department of Mechanical Engineering, Khulna University of Engineering \& Technology, Khulna, Bangladesh. The above work or any part of this work has not been submitted anywhere for the award of any degree or diploma.}
+\end{justify}
+
+\vspace{3\baselineskip}
+
+\begin{multicols}{2} % Start two-column layout
+    \centering\fontsize{12}{12}\selectfont % Center the text within each column
+    \underline{\hspace{0.8\linewidth}}\par % Add the underline
+    Signature of supervisor \par
+    \vspace{0.5cm} % Add space before the name
+    Dr. Md. Kutub Uddin\par
+    Professor\par
+    Department of Mechanical Engineering\par
+Khulna University of Engineering \& Technology
+    
+    \columnbreak % Move to the next column
+    
+    \centering % Center the text within each column
+    \underline{\hspace{0.8\linewidth}}\par % Add the underline
+    Signature of student\par
+    \vspace{0.5cm} % Add space before the name
+   \textbf{ }Md Rahatuzzaman Roni \par
+   Roll: 1805049\par 
+   Department of Mechanical Engineering,\par
+   Khulna University of Engineering \& Technology
+\end{multicols}
+\clearpage
+
+% Approval
+% Approval
+\section*{\centering\fontsize{14}{16}\selectfont Approval}
+\addcontentsline{toc}{section}{Approval}
+\vspace{2\baselineskip}
+\setstretch{1.5}
+{\justifying\fontsize{12}{14}\selectfont % Justify the text
+This is to attest that the thesis work filed by Md Rahatuzzaman Roni, Roll No. 1805049 entitled “A Numerical Simulation Of A Variable-Shape Buoy Wave Energy Conversion Using Hyper Elastic Materials” has been approved by the board of examiners in the Department of Mechanical Engineering for the partial completion of the assertion for the degree of Bachelor of Science in Mechanical Engineering, Khulna University of Engineering \& Technology, Khulna, Bangladesh in February 2024.
+\par % End of paragraph
+}
+\vspace{3\baselineskip}
+\section*{\centering\fontsize{14}{16}\selectfont BOARD OF EXAMINERS}
+\addcontentsline{toc}{section}{BOARD OF EXAMINERS}
+\vspace{3\baselineskip}
+
+
+\begin{figure}[h]
+    \centering\fontsize{12}{16}\selectfont
+    \setstretch{1.5}
+    \begin{tabular}{@{}p{0.8\textwidth}p{0.45\textwidth}@{}}
+        \fontsize{12}{14}\selectfont 1. (Signature) & \\
+        \hrulefill & \fontsize{12}{14}\selectfont\makebox[0pt][l]{(Supervisor)} \\
+        {\fontsize{12}{14}\selectfont Dr. Md. Kutub Uddin} & \\
+        {\fontsize{12}{14}\selectfont Professor} & \\
+        {\fontsize{12}{14}\selectfont Khulna University of Engineering \& Technology,} & \\
+        \fontsize{12}{14}\selectfont Khulna 9203, Bangladesh & \\
+    \end{tabular}
+\end{figure}
+\vspace{1\baselineskip}
+\begin{figure}[h]
+    \centering\fontsize{12}{16}\selectfont
+    \setstretch{1.5}
+    \begin{tabular}{@{}p{0.8\textwidth}p{0.45\textwidth}@{}}
+        \fontsize{12}{14}\selectfont2. (Signature) & \\
+        \hrulefill & \fontsize{12}{14}\selectfont\makebox[0pt][l]{(External Member)} \\
+        & \\
+        \fontsize{12}{14}\selectfont(Designation) & \\
+        \fontsize{12}{14}\selectfont Khulna University of Engineering \& Technology    &    \\
+        \fontsize{12}{14}\selectfont Khulna 9203, Bangladesh & \\
+    \end{tabular}
+\end{figure}
+
+
+
+\clearpage
+
+% Acknowledgement
+% Acknowledgement
+\section*{\centering\fontsize{14}{16}\selectfont Acknowledgement}
+\addcontentsline{toc}{section}{Acknowledgement}
+\vspace{3\baselineskip}
+\thispagestyle{plain}
+% Set line spacing to 1.5
+\setstretch{1.5}
+\fontsize{12}{14}\selectfont % Set font size to 24pt for the rest of the text
+
+
+The author would like to thank "Almighty Allah," the most gracious and supreme ruler of the universe, for his immeasurable grace and profound kindness in allowing him to successfully complete this special study.\\ 
+The author would like to express his heartfelt gratitude to his supervisor, Professor Dr. Md. Kutub Uddin, Department of Mechanical Engineering, KUET, for his warm encouragement, insightful advice, and scholastic oversight throughout the process of producing this study. This project would not have been completed if it hadn't been for his constant guidance and oversight at every stage of the process.\\ The author would like to show his thanks to Professor Dr. Zahir Uddin Ahmed, Head of the Department of Mechanical Engineering, Khulna University of Engineering \& Technology for their kind cooperation and encouragement which assisted him in the completion of this research.\\
+Finally, the author would like to thank Professor Dr. Mihir Ranjan Halder, Vice-Chancellor, Khulna University of Engineering \& Technology, for providing the necessary support and guidance to successfully complete this study in fulfillment of the requirements for the course ME 4000.\\
+\vspace{1\baselineskip} % Add 2 baselineskip spacing
+
+\hfill Author % Right-align "Author"
+
+\clearpage
+
+% Abstract
+% Abstract
+\section*{\centering\fontsize{14}{16}\selectfont Abstract}
+\addcontentsline{toc}{section}{Abstract}
+\vspace{3\baselineskip}
+\thispagestyle{plain}
+\setstretch{1.5}
+{\justifying\fontsize{12}{14}\selectfont
+Wave energy converters (WECs) that require reactive power often need more complex power
+take-off (PTO) devices, as compared to those that do not require it. WECs that require reactive
+power often have more complex power take-off (PTO) devices compared to those that do not
+require it. Variable Shape Buoy Wave Energy Converters (VSB WECs) were developed to
+convert energy at a higher rate while reducing the need for reactive power. ANSYS's 2-way
+fluid-structure interaction (FSI) tool was used in a Computational Fluid Dynamics (CFD) tool to
+model VSB WECs. A CFD-based Numerical Wave Tank was developed to simulate open sea
+conditions (CNWT) and evaluate the nonlinear response of the VSB WECs. Results show that
+the VSB WECs undergo significant deformation before reaching steady-state behavior in
+response to approaching waves, which is more accurate than previous low-fidelity dynamic
+models. The study concludes that under suitable conditions, the variance in motion can be
+utilized to capture energy at a faster rate without requiring power flow.
+}
+\clearpage
+
+% Table of Contents
+\renewcommand{\contentsname}{\fontsize{14}{16}\selectfont Table of Contents}
+\renewcommand\cftsecfont{\fontsize{12}{4}\selectfont}
+\renewcommand\cftsubsecfont{\fontsize{12}{4}\selectfont}
+\renewcommand\cftsubsubsecfont{\fontsize{12}{4}\selectfont}
+
+\begin{center}
+\tableofcontents
+\end{center}
+\vspace{1cm} % Adds a line gap after the title
+
+\clearpage
+
+% List of Tables
+% List of Tables
+\section*{List of Tables}
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\clearpage
+
+
+
+% List of Figures
+% List of Figures
+\section*{List of Figures}
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\clearpage
+
+% List of Illustrations
+% List of Illustrations
+\section*{List of Illustrations}
+\addcontentsline{toc}{section}{List of Illustrations}
+\lipsum[9-10]
+\clearpage
+
+% Nomenclature
+% Nomenclature
+\addcontentsline{toc}{section}{Nomenclature}
+
+\label{sec:nomenclature}
+\vspace{1\baselineskip} % Adjust the vertical space here as needed
+
+\renewcommand{\nomgroup}[1]{%
+  \item[\textbf{\large\ifstrequal{#1}{G}{Greek Letters}{\ifstrequal{#1}{S}{General Symbols}{}}}]%
+  \vspace{1\baselineskip} % Adjust the vertical space here as needed
+}
+
+\makenomenclature
+\fontsize{12}{14}\selectfont
+% Define nomenclature entries for Greek letters
+\nomenclature[G]{$\rho$}{Density}
+\nomenclature[G]{$\in$}{Dissipation Rate}
+
+% Define nomenclature entries for general symbols
+\nomenclature[S]{$\omega_p$}{Pick Frequency}
+\nomenclature[S]{$\vec{\tau}$}{Stress Tensor}
+\nomenclature[S]{$\vec{v}$}{Flow Velocity}
+\nomenclature[S]{$\rho \vec{g}$}{Gravitational Body Force}
+\nomenclature[S]{$\vec{F}$}{Applied Numerical Bench Treatment}
+\nomenclature[S]{$E$}{Energy}
+\nomenclature[S]{$k$}{Turbulent Kinetic Energy}
+\nomenclature[S]{$\rho_q$}{Density Fraction}
+\nomenclature[S]{$q$}{Phase}
+\nomenclature[S]{$PM$}{The Person-Monskowitz}
+\nomenclature[S]{$H_s$}{Significant wave height}
+\nomenclature[S]{$k_i$}{Wave Number}
+\nomenclature[S]{$k_e$}{Effective Thermal conductivity}
+\nomenclature[S]{$\alpha_q$}{Volume Fraction}
+\nomenclature[S]{$\theta_p$}{Mean Wave Handling Angle}
+
+\printnomenclature
+\clearpage
+
+
+% Switch to Arabic numerals for main content
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1} % Reset page counter
+
+% Chapters
+% Chapter 1
+\section*{\centering\fontsize{14}{16}\selectfont CHAPTER I}
+\addcontentsline{toc}{section}{CHAPTER I}
+
+% Introduction subsection
+\subsection*{\centering\fontsize{12}{14}\selectfont INTRODUCTION}
+\addcontentsline{toc}{subsection}{INTRODUCTION}
+
+% Introduction: subsection
+%\setstretch{1.5}
+\subsubsection*{\fontsize{12}{14}\selectfont 1.1 Introduction}
+\addcontentsline{toc}{subsubsection}{1.1 Introduction}
+
+% Your content for the Introduction subsection goes here
+\setstretch{1.5}
+\fontsize{12}{14}\selectfont
+In recent years, there has been a rise in the number of studies that investigate ways to transform wave energy into forms that can be used. This is an instant response to the rising interest in sustainable power and the many benefits connected with it, such as dependability, minimal carbon, and high density of power.\cite{ref1} This is a reaction to the increasing interest in sustainable energy and the numerous approval with it. This is a direct consequence of people's increasing interest in renewable sources of energy and the advantages that they provide. The process of converting wave energy into forms that may be put to use is currently in the preliminary phases of research and development.\cite{ref2,ref3,ref4} In the past ten years, a significant amount of time and effort has been invested in the academic research of WEC behavior and control. Since we originally began devoting how much time and effort into this endeavor, ten years have gone. From here, we move on to studying nonlinear hydrodynamics (especially nonlinear FK force), conducting CNWT simulations of wave energy converters \cite{ref3} and ultimately exploring nonlinear dynamics in general \cite{ref4}. When it comes to the process of developing appropriate controls, linear models are utilized rather frequently \cite{ref5}. Linear models are frequently utilized in the process of developing optimum control systems. Whilst also attempting to figure the most effective strategy to control a system, linear models are utilized rather frequently in many cases.\cite{ref6} During the past several years, there has been a considerable rise in the amount of research that is being done to investigate how the process of turning wave energy into useable forms might be made more cost-effective.
+
+% Current situation of Renewable energy: subsection
+\subsubsection*{\fontsize{12}{14}\selectfont 1.2 Current situation of Renewable energy}
+\addcontentsline{toc}{subsubsection}{1.2 Current situation of Renewable energy}
+
+% Your content for the Current situation of Renewable energy subsection goes here
+
+% Project motivation: subsection
+\subsubsection*{\fontsize{12}{14}\selectfont 1.3 Project motivation}
+\addcontentsline{toc}{subsubsection}{1.3 Project motivation}
+
+% Your content for the Project motivation subsection goes here
+
+% Objectives: subsection
+\subsubsection*{\fontsize{12}{14}\selectfont 1.4 Objectives}
+\addcontentsline{toc}{subsubsection}{1.4 Objectives}
+
+% Your content for the Objectives subsection goes here
+
+% Problem description: subsection
+\subsubsection*{\fontsize{12}{14}\selectfont 1.5 Problem description}
+\addcontentsline{toc}{subsubsection}{1.5 Problem description}
+\cite{ref7}
+\cite{ref8}
+\cite{ref9}
+\cite{ref10}\cite{ref12}\cite{ref13}\cite{ref14}\cite{ref15}\cite{ref16}\cite{ref17}\cite{ref18}\cite{ref19}\cite{ref20}\cite{ref21}\cite{ref22}\cite{ref23}\cite{ref24}\cite{ref25}\cite{ref26}\cite{ref27}\cite{ref28}
+% Your content for the Problem description subsection goes here
+\clearpage
+
+
+
+
+% Chapter 2
+\section*{\centering\fontsize{14}{16}\selectfont CHAPTER II}
+\addcontentsline{toc}{section}{CHAPTER II}
+
+% Introduction subsection
+\subsection*{\centering\fontsize{12}{14}\selectfont LITERATURE REVIEW}
+\vspace{3\baselineskip}
+\addcontentsline{toc}{subsection}{LITERATURE REVIEW}
+
+% Introduction: subsection
+\subsubsection*{\fontsize{10}{12}\selectfont 2.1 LITERATURE REVIEW}
+\addcontentsline{toc}{subsubsection}{2.1 LITERATURE REVIEW}
+\clearpage
+
+
+
+
+% Chapter 3
+\section*{\centering\fontsize{14}{16}\selectfont CHAPTER III}
+\addcontentsline{toc}{section}{CHAPTER III}
+
+% Methodology subsection
+\subsection*{\centering\fontsize{12}{14}\selectfont METHODOLOGY}
+\addcontentsline{toc}{subsection}{METHODOLOGY}
+
+% Numerical Modeling: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.1 Numerical Modeling}
+\addcontentsline{toc}{subsubsection}{3.1 Numerical Modeling}
+
+% Your content for the Numerical Modeling subsection goes here
+
+% Governing equation: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.2 Governing equation}
+\addcontentsline{toc}{subsubsection}{3.2 Governing equation}
+
+% Continuity equation: subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.2.1 Continuity equation}
+
+% Your content for the Continuity equation subsubsection goes here
+
+% Momentum equation (Navier–stokes equation): subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.2.2 Momentum equation (Navier–Stokes equation)}
+
+% Your content for the Momentum equation (Navier–Stokes equation) subsubsection goes here
+
+% Physics Modeling: subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.2.3 Physics Modeling}
+
+% Your content for the Physics Modeling subsubsection goes here
+
+% CFD Method: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.3 CFD Method}
+\addcontentsline{toc}{subsubsection}{3.3 CFD Method}
+
+% Your content for the CFD Method subsection goes here
+
+% DNS Method: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.4 DNS Method}
+\addcontentsline{toc}{subsubsection}{3.4 DNS Method}
+
+% Your content for the DNS Method subsection goes here
+
+% Transient structural analysis method: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.5 Transient structural analysis method}
+\addcontentsline{toc}{subsubsection}{3.5 Transient structural analysis method}
+
+% Your content for the Transient structural analysis method subsection goes here
+
+% Boundary condition: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.6 Boundary condition}
+\addcontentsline{toc}{subsubsection}{3.6 Boundary condition}
+
+% Your content for the Boundary condition subsection goes here
+
+% Data and calculation: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.7 Data and calculation}
+\addcontentsline{toc}{subsubsection}{3.7 Data and calculation}
+
+% Your content for the Data and calculation subsection goes here
+
+% Geometrical model: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.8 Geometrical model}
+\addcontentsline{toc}{subsubsection}{3.8 Geometrical model}
+
+% Your content for the Geometrical model subsection goes here
+
+% Meshing for fluid domain: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.9 Meshing for fluid domain}
+\addcontentsline{toc}{subsubsection}{3.9 Meshing for fluid domain}
+
+% Mesh for Fluent: subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.9.1 Mesh for Fluent}
+
+% Your content for the Mesh for Fluent subsubsection goes here
+
+% Mesh quality for Fluent: subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.9.2 Mesh quality for Fluent}
+
+% Your content for the Mesh quality for Fluent subsubsection goes here
+
+% Mesh Independency test (For Fluid domain): subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.10 Mesh Independency test (For Fluid domain)}
+\addcontentsline{toc}{subsubsection}{3.10 Mesh Independency test (For Fluid domain)}
+
+% Your content for the Mesh Independency test (For Fluid domain) subsection goes here
+
+% Residual dependency test: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.11 Residual dependency test}
+\addcontentsline{toc}{subsubsection}{3.11 Residual dependency test}
+
+% Your content for the Residual dependency test subsection goes here
+
+% Model validation: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.12 Model validation}
+\addcontentsline{toc}{subsubsection}{3.12 Model validation}
+
+% Your content for the Model validation subsection goes here
+
+% Free Decay Test: subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.12.1 Free Decay Test}
+
+% Your content for the Free Decay Test subsubsection goes here
+
+% Numerical Setup: subsubsection
+\subsubsection*{\fontsize{11}{12}\selectfont 3.13 Numerical Setup}
+\addcontentsline{toc}{subsubsection}{3.13 Numerical Setup}
+
+% Fluent setup: subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.13.1 Fluent setup}
+
+% Your content for the Fluent setup subsubsection goes here
+
+% Transient Structural analysis setup: subsubsubsection
+\paragraph{\fontsize{11}{12}\selectfont 3.13.2 Transient Structural analysis setup}
+
+% Your content for the Transient Structural analysis setup subsubsection goes here
+\clearpage
+
+
+
+
+
+
+% Chapter 4
+% Adjust tocdepth to include paragraphs in the table of contents
+\setcounter{tocdepth}{4}
+\section*{\centering\fontsize{14}{16}\selectfont CHAPTER IV}
+\addcontentsline{toc}{section}{CHAPTER IV}
+
+% Result and Discussion subsection
+\subsection*{\centering\fontsize{12}{14}\selectfont RESULT AND DISCUSSION}
+\addcontentsline{toc}{subsection}{RESULT AND DISCUSSION}
+
+% Wave Generation Results: subsubsection
+\subsubsection*{\fontsize{10}{12}\selectfont 4.1 Wave Generation Results}
+\addcontentsline{toc}{subsubsection}{4.1 Wave Generation Results}
+
+% Static Pressure Due to 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec: subsubsubsection
+\paragraph{\fontsize{10}{12}\selectfont 4.1.1 Static Pressure Due to 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}
+
+% Your content for the Static Pressure Due to 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec subsubsubsection goes here
+
+% Velocity observation for 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec: subsubsubsection
+\paragraph{\fontsize{10}{12}\selectfont 4.1.2 Velocity observation for 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}
+
+% Your content for the Velocity observation for 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec subsubsubsection goes here
+
+% Phase Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec: subsubsubsection
+\paragraph{\fontsize{10}{12}\selectfont 4.1.3 Phase Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}
+
+% Your content for the Phase Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec subsubsubsection goes here
+
+% Dynamic pressure Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec: subsubsubsection
+\paragraph{\fontsize{10}{12}\selectfont 4.1.4 Dynamic pressure Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec}
+
+% Your content for the Dynamic pressure Change of 0.5 m amplitude and 5 m stroke length Wave For 0 sec to 1.5 sec subsubsubsection goes here
+
+% Impact of Wave on the sphere: subsubsubsection
+\paragraph{\fontsize{10}{12}\selectfont 4.1.5 Impact of Wave on the sphere}
+
+% Your content for the Impact of Wave on the sphere subsubsubsection goes here
+
+% Structural deformation Results: subsubsection
+\subsubsection*{\fontsize{10}{12}\selectfont 4.2 Structural deformation Results}
+\addcontentsline{toc}{subsubsection}{4.2 Structural deformation Results}
+
+% Deformation: subsubsubsection
+\paragraph{\fontsize{10}{12}\selectfont 4.2.1 Deformation}
+
+% Your content for the Deformation subsubsubsection goes here
+
+% Total strain energy gained: subsubsubsection
+\paragraph{\fontsize{10}{12}\selectfont 4.2.2 Total strain energy gained}
+
+% Your content for the Total strain energy gained subsubsubsection goes here
+\clearpage
+
+
+% Chapter 5
+\section*{\centering\fontsize{14}{16}\selectfont CHAPTER V}
+\addcontentsline{toc}{section}{CHAPTER V}
+
+% Discussion subsection
+\subsection*{\fontsize{12}{14}\selectfont 5.1 Discussion}
+\addcontentsline{toc}{subsection}{5.1 Discussion}
+
+% Your content for the Discussion subsection goes here
+
+% Conclusion subsection
+\subsection*{\fontsize{12}{14}\selectfont 5.2 Conclusion}
+\addcontentsline{toc}{subsection}{5.2 Conclusion}
+
+% Your content for the Conclusion subsection goes here
+\clearpage
+
+
+% References
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99} % Specify the number of items in your list, adjust if needed
+
+\bibitem{ref1}
+Alain Clément, Pat McCullen, António Falcão, Antonio Fiorentino, Fred Gardner, Karin Hammarlund, George Lemonis, Tony Lewis, Kim Nielsen, Simona Petroncini, and others.
+\textit{Wave energy in Europe: current status and perspectives}.
+Renewable and Sustainable Energy Reviews, 6(5):405--431, 2002.
+Elsevier.
+
+\bibitem{ref2}
+JC Gilloteaux, A Babarit, AH Clément.
+\textit{Influence of spectrum spreading on the SEAREV wave energy converter}.
+International Ocean Energy Conference, 2007.
+
+\bibitem{ref3}
+Giorgio Bacelli.
+\textit{Optimal control of wave energy converters}.
+National University of Ireland, Maynooth (Ireland), 2014.
+
+\bibitem{ref4}
+Giorgio Bacelli, Philip Balitsky, John V Ringwood.
+\textit{Coordinated control of arrays of wave energy devices—Benefits over independent control}.
+IEEE Transactions on Sustainable Energy, 4(4):1091--1099, 2013.
+IEEE.
+
+\bibitem{ref5}
+Giorgio Bacelli, John V Ringwood.
+\textit{Nonlinear optimal wave energy converter control with application to a flap-type device}.
+IFAC Proceedings Volumes, 47(3):7696--7701, 2014.
+Elsevier.
+
+\bibitem{ref6}
+Giorgio Bacelli, John V Ringwood, Jean-Christophe Gilloteaux.
+\textit{A control system for a self-reacting point absorber wave energy converter subject to constraints}.
+IFAC Proceedings Volumes, 44(1):11387--11392, 2011.
+Elsevier.
+
+\bibitem{ref7}
+Shangyan Zou, Ossama Abdelkhalik, Rush Robinett, Giorgio Bacelli, David Wilson.
+\textit{Optimal control of wave energy converters}.
+Renewable energy, 103:217--225, 2017.
+Elsevier.
+
+\bibitem{ref8}
+K Budar, Johannes Falnes.
+\textit{A resonant point absorber of ocean-wave power}.
+Nature, 256(5517):478--479, 1975.
+Nature Publishing Group UK London.
+
+\bibitem{ref9}
+Johannes Falnes, Adi Kurniawan.
+\textit{Ocean waves and oscillating systems: linear interactions including wave-energy extraction}.
+Cambridge university press, 2020.
+
+\bibitem{ref10}
+J Falnes, M Perlin.
+\textit{Ocean waves and oscillating systems: Linear interactions including wave-energy extraction}.
+Applied Mechanics Reviews, 56(1):B3, 2003.
+
+\bibitem{ref11}
+Jørgen Hals, Johannes Falnes, Torgeir Moan.
+\textit{Constrained optimal control of a heaving buoy wave-energy converter}.
+2011.
+
+\bibitem{ref12}
+Shangyan Zou, Ossama Abdelkhalik.
+\textit{A numerical simulation of a variable-shape buoy wave energy converter}.
+Journal of Marine Science and Engineering, 9(6):625, 2021.
+MDPI.
+
+\bibitem{ref13}
+Shangyan Zou, Ossama Abdelkhalik.
+\textit{Modeling of a variable-geometry wave energy converter}.
+IEEE Journal of Oceanic Engineering, 46(3):879--890, 2020.
+IEEE.
+
+\bibitem{ref14}
+Shangyan Zou, Ossama Abdelkhalik.
+\textit{Numerical wave tank simulation of a variable geometry wave energy converter}.
+International Conference on Offshore Mechanics and Arctic Engineering, 84416:V009T09A024, 2020.
+American Society of Mechanical Engineers.
+
+\bibitem{ref15}
+Giuseppe Giorgi, John V Ringwood.
+\textit{Computationally efficient nonlinear Froude--Krylov force calculations for heaving axisymmetric wave energy point absorbers}.
+Journal of Ocean Engineering and Marine Energy, 3:21--33, 2017.
+Springer.
+
+\bibitem{ref16}
+Giorgio Bacelli, John V Ringwood.
+\textit{Numerical optimal control of wave energy converters}.
+IEEE Transactions on Sustainable Energy, 6(2):294--302, 2014.
+IEEE.
+
+\bibitem{ref17}
+Shangyan Zou, Ossama Abdelkhalik, Rush Robinett, Giorgio Bacelli, David Wilson.
+\textit{Optimal control of wave energy converters}.
+Renewable energy, 103:217--225, 2017.
+Elsevier.
+
+\bibitem{ref18}
+K Budar, Johannes Falnes.
+\textit{A resonant point absorber of ocean-wave power}.
+Nature, 256(5517):478--479, 1975.
+Nature Publishing Group UK London.
+
+\bibitem{ref19}
+Johannes Falnes, Adi Kurniawan.
+\textit{Ocean waves and oscillating systems: linear interactions including wave-energy extraction}.
+Cambridge university press, 2020.
+
+\bibitem{ref20}
+J Falnes, M Perlin.
+\textit{Ocean waves and oscillating systems: Linear interactions including wave-energy extraction}.
+Applied Mechanics Reviews, 56(1):B3, 2003.
+
+\bibitem{ref21}
+Jørgen Hals, Johannes Falnes, Torgeir Moan.
+\textit{Constrained optimal control of a heaving buoy wave-energy converter}.
+2011.
+
+\bibitem{ref22}
+Shangyan Zou, Ossama Abdelkhalik.
+\textit{A numerical simulation of a variable-shape buoy wave energy converter}.
+Journal of Marine Science and Engineering, 9(6):625, 2021.
+MDPI.
+
+\bibitem{ref23}
+Shangyan Zou, Ossama Abdelkhalik.
+\textit{Modeling of a variable-geometry wave energy converter}.
+IEEE Journal of Oceanic Engineering, 46(3):879--890, 2020.
+IEEE.
+
+\bibitem{ref24}
+Shangyan Zou, Ossama Abdelkhalik.
+\textit{Numerical wave tank simulation of a variable geometry wave energy converter}.
+International Conference on Offshore Mechanics and Arctic Engineering, 84416:V009T09A024, 2020.
+American Society of Mechanical Engineers.
+
+\bibitem{ref25}
+Giuseppe Giorgi, John V Ringwood.
+\textit{Computationally efficient nonlinear Froude--Krylov force calculations for heaving axisymmetric wave energy point absorbers}.
+Journal of Ocean Engineering and Marine Energy, 3:21--33, 2017.
+Springer.
+
+\bibitem{ref26}
+Giorgio Bacelli, John V Ringwood.
+\textit{Numerical optimal control of wave energy converters}.
+IEEE Transactions on Sustainable Energy, 6(2):294--302, 2014.
+IEEE.
+
+\bibitem{ref27}
+Yi-Hsiang Yu, Nathan Tom, Dale Jenne.
+\textit{Numerical analysis on hydraulic power take-off for wave energy converter and power smoothing methods}.
+International Conference on Offshore Mechanics and Arctic Engineering, 51319:V010T09A043, 2018.
+American Society of Mechanical Engineers.
+
+\bibitem{ref28}
+Yichi Zhang, Yangyao Ding, Panagiotis D Christofides.
+\textit{Integrating feedback control and run-to-run control in multi-wafer thermal atomic layer deposition of thin films}.
+Processes, 8(1):18, 2019.
+MDPI.
+
+\bibitem{ref29}
+Christian Windt, Josh Davidson, John V Ringwood.
+\textit{High-fidelity numerical modelling of ocean wave energy systems: A review of computational fluid dynamics-based numerical wave tanks}.
+Renewable and Sustainable Energy Reviews, 93:610--630, 2018.
+Elsevier.
+
+\bibitem{ref30}
+Mário Rito Pereira, Goncalo Silva, Viriato Semiao, Vania Silverio, Jorge NR Martins, Paula Pascoal-Faria, Nuno Alves, Juliana R Dias, António Ginjeira.
+\textit{Experimental validation of a computational fluid dynamics model using micro-particle image velocimetry of the irrigation flow in confluent canals}.
+International Endodontic Journal, 55(12):1394--1403, 2022.
+Wiley Online Library.
+
+\bibitem{ref31}
+Alberto Alberello, Csaba Pakodzi, Filippo Nelli, Elzbieta M Bitner-Gregersen, Alessandro Toffoli.
+\textit{Three dimensional velocity field underneath a breaking rogue wave}.
+International Conference on Offshore Mechanics and Arctic Engineering, 57656:V03AT02A009, 2017.
+American Society of Mechanical Engineers.
+
+\bibitem{ref32}
+Vinay Kumar Gupta, Mohib Khan, Hemant Punekar.
+\textit{Development and application of interfacial anti-diffusion and poor mesh numerics treatments for free surface flows}.
+2015 IEEE 22nd International Conference on High Performance Computing Workshops, pages:12--18, 2015.
+IEEE.
+
+\bibitem{ref33}
+Tahsin Tezdogan, Yigit Kemal Demirel, Paula Kellett, Mahdi Khorasanchi, Atilla Incecik, Osman Turan.
+\textit{Full-scale unsteady RANS CFD simulations of ship behaviour and performance in head seas due to slow steaming}.
+Ocean Engineering, 97:186--206, 2015.
+Elsevier.
+
+\bibitem{ref34}
+Qiuying Guo, Zunyi Xu.
+\textit{Simulation of deep-water waves based on JONSWAP spectrum and realization by MATLAB}.
+2011 19th International Conference on Geoinformatics, pages:1--4, 2011.
+IEEE.
+
+\bibitem{ref35}
+Arun Mulky Kamath.
+\textit{Calculation of wave forces on structures using reef3d}.
+Institutt for bygg, anlegg og transport, 2012.
+
+\bibitem{ref36}
+Chiemela Victor Amaechi, Jianqiao Ye.
+\textit{An investigation on the vortex effect of a CALM buoy under water waves using Computational Fluid Dynamics (CFD)}.
+Inventions, 7(1):23, 2022.
+MDPI.
+
+\bibitem{ref37}
+António F de O Falcão.
+\textit{Phase control through load control of oscillating-body wave energy converters with hydraulic PTO system}.
+Ocean engineering, 35(3-4):358--366, 2008.
+Elsevier.
+
+\bibitem{ref38}
+Antonio F de O Falcao.
+\textit{Wave energy utilization: A review of the technologies}.
+Renewable and sustainable energy reviews, 14(3):899--918, 2010.
+Elsevier.
+
+\bibitem{ref39}
+Nikolaos M Kimoulakis, Antonios G Kladas, John A Tegopoulos.
+\textit{Cogging force minimization in a coupled permanent magnet linear generator for sea wave energy extraction applications}.
+IEEE Transactions on Magnetics, 45(3):1246--1249, 2009.
+IEEE.
+
+\bibitem{ref40}
+Petr Benes, Róbert Kollárik.
+\textit{Preliminary computational fluid dynamics (CFD) simulation of EIIB push barge in shallow water}.
+Scientific Proceedings. Faculty of Mechanical Engineering, Slovak University of Technology in Bratislava, 19(1):67, 2011.
+De Gruyter Open Sp. z oo.
+
+\bibitem{ref41}
+Mariana Bernardino, Marta Goncalves, Carlos Guedes Soares.
+\textit{Marine climate projections toward the end of the twenty-first century in the north Atlantic}.
+Journal of Offshore Mechanics and Arctic Engineering, 143(6):061201, 2021.
+American Society of Mechanical Engineers.
+
+\bibitem{ref42}
+Ewen Callaway.
+\textit{To catch a wave: ocean wave energy is trying to break into the renewable-energy market, but many challenges remain}.
+Nature, 450(7167):156--160, 2007.
+Nature Publishing Group.
+
+\bibitem{ref43}
+R Carballo, M Sánchez, V Ramos, JA Fraguela, G Iglesias.
+\textit{Intra-annual wave resource characterization for energy exploitation: A new decision-aid tool}.
+Energy Conversion and Management, 93:1--8, 2015.
+Elsevier.
+
+\bibitem{ref44}
+Laura Castro-Santos, Elson Martins, Carlos Guedes Soares.
+\textit{Economic comparison of technological alternatives to harness offshore wind and wave energies}.
+Energy, 140:1121--1130, 2017.
+Elsevier.
+
+\bibitem{ref45}
+Laura Castro-Santos, Elson Martins, Carlos Guedes Soares.
+\textit{Methodology to calculate the costs of a floating offshore renewable energy farm}.
+Energies, 9(5):324, 2016.
+MDPI.
+
+\bibitem{ref46}
+J Cretel, AW Lewis, G Lightbody, GP Thomas.
+\textit{An application of model predictive control to a wave energy point absorber}.
+IFAC Proceedings Volumes, 43(1):267--272, 2010.
+Elsevier.
+
+\bibitem{ref47}
+Julien AM Cretel, Gordon Lightbody, Gareth P Thomas, Anthony W Lewis.
+\textit{Maximisation of energy capture by a wave-energy point absorber using model predictive control}.
+IFAC Proceedings Volumes, 44(1):3714--3721, 2011.
+Elsevier.
+
+\bibitem{ref48}
+WE Cummins.
+\textit{The impulse response function and ship motions}.
+Department of the Navy, David Taylor Model Basin Bethesda, MD, USA, 1962.
+
+\bibitem{ref49}
+Gordon Dalton, Tamás Bardócz, Mike Blanch, David Campbell, Kate Johnson, Gareth Lawrence, Theodore Lilas, Erik Friis-Madsen, Frank Neumann, Nikitakos Nikitas.
+\textit{Feasibility of investment in Blue Growth multiple-use of space and multi-use platform projects; results of a novel assessment approach and case studies}.
+Renewable and Sustainable Energy Reviews, 107:338--359, 2019.
+Elsevier.
+
+\bibitem{ref50}
+Christopher J Damaren.
+\textit{Time-domain floating body dynamics by rational approximation of the radiation impedance and diffraction mapping}.
+Ocean Engineering, 27(6):687--705, 2000.
+Elsevier.
+
+\bibitem{ref51}
+Hugo Díaz, José Miguel Rodrigues, C Guedes Soares.
+\textit{New Wave Energy Converter Design Inspired by the Nenuphar Plant}.
+Journal of Marine Science and Engineering, 10(11):1612, 2022.
+Multidisciplinary Digital Publishing Institute.
+
+\bibitem{ref52}
+Benjamin Drew, Andrew R Plummer, M Necip Sahinkaya.
+\textit{A review of wave energy converter technology}.
+Sage Publications Sage UK: London, England, 2009.
+
+\bibitem{ref53}
+Håvard Eidsmoen.
+\textit{Optimum control of a floating wave-energy converter with restricted amplitude}.
+1996.
+
+\bibitem{ref54}
+Bruce A Finlayson, Laurence Edward Scriven.
+\textit{The method of weighted residuals—a review}.
+Appl. Mech. Rev, 19(9):735--748, 1966.
+
+\end{thebibliography}
+\end{document}

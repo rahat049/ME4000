@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for adding images
+\usepackage[top=30 mm, left= 30 mm, right= 25 mm, bottom= 25 mm]{geometry}
+\usepackage{mathptmx} % Times New Roman
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{ragged2e} % For text justification
+\usepackage{ulem} % for extended underline (\uline)
+\usepackage{array} % for custom column alignment
+\usepackage{titlesec}
+\usepackage{nomencl}
+\usepackage{glossaries}
+
+
+% Font settings
+\renewcommand{\familydefault}{\rmdefault}
+
+% Section heading style
+\renewcommand{\thesection}{\arabic{section}}
+
+% Table of contents formatting
+\renewcommand{\contentsname}{\centering\fontsize{14}{16}\bfseries Table of Contents}
+
+% Custom styles
+\newcommand{\Titlethesis}[1]{\centering\fontsize{14}{16}\bfseries\MakeUppercase{#1}}
+\newcommand{\Stuname}[1]{\centering\fontsize{12}{14}\bfseries #1}
+\newcommand{\Degree}[1]{\centering\fontsize{12}{14}\selectfont #1}
+
+
+
+\begin{document}
+\pagenumbering{roman}
+% Title page
+\input{title_page.tex}
+
+% Declaration
+\input{6_declaration}
+
+% Approval
+\input{approval.tex}
+
+% Acknowledgement
+\input{acknowledgement.tex}
+
+% Abstract
+\input{abstract.tex}
+
+% Table of Contents
+\input{table_of_contents.tex}
+
+
+% List of Tables
+\input{list_of_tables.tex}
+
+% List of Figures
+\input{list_of_figures.tex}
+
+% List of Illustrations
+\input{list_of_illustrations.tex}
+
+% Nomenclature
+\input{nomenclature.tex}
+
+% Switch to Arabic numerals for main content
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1} % Reset page counter
+
+% Chapters
+\input{1_chapter_introduction}
+\input{2_chapter_literature_review}
+\input{3_chapter_methodology}
+\input{4_chapter_result_discussion}
+\input{5_discussion_conclusion}
+
+% References
+\input{references.tex}
+
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.17}
+
+\begin{document}
+
+\begin{figure}
+    \centering
+    \pgfplotstableread[col sep=comma]{HeaveVelocity.csv}\loadedtable
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={Time (s)},
+            ylabel={Heave Velocity (m/s)},
+            title={Heave Velocity vs. Time},
+            grid=both,
+            ]
+            \addplot[color=blue, mark=triangle] table [x=Time (s), y=Heave Velocity (m/s)] {\loadedtable};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Heave Velocity vs. Time}
+    \label{fig:heave_velocity}
+\end{figure}
+
+\end{document}

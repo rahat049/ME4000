@@ -1,0 +1,36 @@
+% Nomenclature
+\addcontentsline{toc}{section}{Nomenclature}
+
+\label{sec:nomenclature}
+\vspace{1\baselineskip} % Adjust the vertical space here as needed
+
+\renewcommand{\nomgroup}[1]{%
+  \item[\textbf{\large\ifstrequal{#1}{G}{Greek Letters}{\ifstrequal{#1}{S}{General Symbols}{}}}]%
+  \vspace{1\baselineskip} % Adjust the vertical space here as needed
+}
+
+\makenomenclature
+\fontsize{12}{14}\selectfont
+% Define nomenclature entries for Greek letters
+\nomenclature[G]{$\rho$}{Density}
+\nomenclature[G]{$\in$}{Dissipation Rate}
+
+% Define nomenclature entries for general symbols
+\nomenclature[S]{$\omega_p$}{Pick Frequency}
+\nomenclature[S]{$\vec{\tau}$}{Stress Tensor}
+\nomenclature[S]{$\vec{v}$}{Flow Velocity}
+\nomenclature[S]{$\rho \vec{g}$}{Gravitational Body Force}
+\nomenclature[S]{$\vec{F}$}{Applied Numerical Bench Treatment}
+\nomenclature[S]{$E$}{Energy}
+\nomenclature[S]{$k$}{Turbulent Kinetic Energy}
+\nomenclature[S]{$\rho_q$}{Density Fraction}
+\nomenclature[S]{$q$}{Phase}
+\nomenclature[S]{$PM$}{The Person-Monskowitz}
+\nomenclature[S]{$H_s$}{Significant wave height}
+\nomenclature[S]{$k_i$}{Wave Number}
+\nomenclature[S]{$k_e$}{Effective Thermal conductivity}
+\nomenclature[S]{$\alpha_q$}{Volume Fraction}
+\nomenclature[S]{$\theta_p$}{Mean Wave Handling Angle}
+
+\printnomenclature
+\clearpage
