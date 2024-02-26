@@ -20,6 +20,5 @@ jobs:
       run: |
         sudo pdflatex text.tex
         pwd
-        mv text.pdf /home/runner/work/ME4000/roni.pdf
         shell: bash
   
